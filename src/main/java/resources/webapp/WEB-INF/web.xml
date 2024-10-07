@@ -5,23 +5,10 @@
                              http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd" 
          version="2.5">
 
-    <!-- Application's display name -->
     <display-name>Peter Lynch's Stock Filter</display-name>
 
-    <!-- Define welcome-file to serve your index.html page -->
     <welcome-file-list>
         <welcome-file>index.html</welcome-file>
     </welcome-file-list>
-
-    <!-- Optional Servlet configuration (if needed in the future)
-    <servlet>
-        <servlet-name>ExampleServlet</servlet-name>
-        <servlet-class>com.yourpackage.ExampleServlet</servlet-class>
-    </servlet>
-    <servlet-mapping>
-        <servlet-name>ExampleServlet</servlet-name>
-        <url-pattern>/example</url-pattern>
-    </servlet-mapping>
-    -->
 
 </web-app>
