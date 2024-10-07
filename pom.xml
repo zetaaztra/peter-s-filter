@@ -8,10 +8,6 @@
     <version>1.0-SNAPSHOT</version>
     <packaging>war</packaging>
 
-    <dependencies>
-        <!-- Add your project dependencies here -->
-    </dependencies>
-
     <build>
         <plugins>
             <plugin>
