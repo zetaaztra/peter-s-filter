@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Peter Lynch's Stock Filter</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #000000;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+        .container {
+            background-color: #ff0505;
+            padding: 40px;
+            border-radius: 10px;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            max-width: 400px;
+            width: 100%;
+        }
+        input[type="number"] {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+        button {
+            background-color: #e21313;
+            color: rgb(12, 8, 8);
+            padding: 10px 20px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            margin-top: 10px;
+        }
+        button:hover {
+            background-color: #af0d0d;
+        }
+        #result {
+            margin-top: 20px;
+            font-size: 1.2em;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h2>Peter Lynch's Stock Filter</h2>
+
+    <div>
+        <label for="earningsGrowth">Enter 5 Year Earnings Growth (%)</label>
+        <input type="number" id="earningsGrowth" placeholder="Enter a value between 15% and 30%">
+    </div>
+
+    <div>
+        <label for="debtEquity">Debt to Equity</label>
+        <input type="number" id="debtEquity" placeholder="Enter a value less than 1">
+    </div>
+
+    <div>
+        <label for="roe">ROE (%)</label>
+        <input type="number" id="roe" placeholder="Enter a value more than 15%">
+    </div>
+
+    <div>
+        <label for="peRatio">P/E Ratio</label>
+        <input type="number" id="peRatio" placeholder="Enter a value less than 15">
+    </div>
+
+    <div>
+        <label for="institutionalHolding">Institutional Holding (%)</label>
+        <input type="number" id="institutionalHolding" placeholder="Enter a value less than 30%">
+    </div>
+
+    <button onclick="checkCriteria()">Check Stock</button>
+
+    <div id="result"></div>
+</div>
+
+<script>
+    function checkCriteria() {
+        const earningsGrowth = parseFloat(document.getElementById('earningsGrowth').value);
+        const debtEquity = parseFloat(document.getElementById('debtEquity').value);
+        const roe = parseFloat(document.getElementById('roe').value);
+        const peRatio = parseFloat(document.getElementById('peRatio').value);
+        const institutionalHolding = parseFloat(document.getElementById('institutionalHolding').value);
+
+        let message = '';
+
+        if (
+            earningsGrowth > 15 && earningsGrowth < 30 &&
+            debtEquity < 1 &&
+            roe > 15 &&
+            peRatio < 15 &&
+            institutionalHolding < 30
+        ) {
+            message = "This is a Street Topper Stock. Good to Hold and Buy!";
+        } else {
+            message = "This stock does not meet the criteria.";
+        }
+
+        document.getElementById('result').innerText = message;
+    }
+</script>
+
+</body>
+</html>
